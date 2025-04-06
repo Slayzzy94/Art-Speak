@@ -392,6 +392,22 @@ class GarticPhone:
         self.current_turn = 0
         self.is_host = False
 
+        # Ajouter les variables pour l'édition RGB
+        self.editing_rgb = None  # Index de la valeur RGB en cours d'édition (0=R, 1=G, 2=B)
+        self.rgb_input_text = ""  # Texte en cours de saisie
+        self.last_click_time = 0  # Pour détecter le double-clic
+        self.double_click_delay = 500  # Délai maximum entre deux clics (en millisecondes)
+
+        # Ajouter les variables pour l'animation de fin de chrono
+        self.chrono_end_effect = {
+            'active': False,
+            'alpha': 0,
+            'scale': 1.0,
+            'rotation': 0,
+            'duration': 120,  # Durée de l'animation en frames
+            'progress': 0
+        }
+
     def create_color_picker(self):
         surface = pygame.Surface((self.COLOR_PICKER_WIDTH, self.COLOR_PICKER_HEIGHT), pygame.SRCALPHA)
         
@@ -417,7 +433,15 @@ class GarticPhone:
         
         for i, (label, value) in enumerate(zip(['R', 'G', 'B'], self.rgb_values)):
             # Label et valeur
-            text = font.render(f"{label}: {value}", True, self.TEXT)
+            if self.editing_rgb == i:
+                # Afficher le texte en cours d'édition
+                value_text = self.rgb_input_text + "_"  # Ajouter un curseur
+                text_color = self.ACCENT  # Utiliser la couleur d'accent pour montrer l'édition
+            else:
+                value_text = str(value)
+                text_color = self.TEXT
+            
+            text = font.render(f"{label}: {value_text}", True, text_color)
             surface.blit(text, (20, y_offset + i * 50))
             
             # Fond du slider
@@ -478,11 +502,16 @@ class GarticPhone:
                 self.COLOR_PICKER_Y <= y <= self.COLOR_PICKER_Y + self.COLOR_PICKER_HEIGHT)
 
     def get_clicked_rgb_value(self, pos):
-        mouse_x, mouse_y = pos
+        # Convertir la position globale en position relative au color picker
+        rel_x = pos[0] - self.COLOR_PICKER_X
+        rel_y = pos[1] - self.COLOR_PICKER_Y
+        
+        # Vérifier si le clic est dans la zone des valeurs RGB
+        y_offset = 110
         for i in range(3):
-            y_pos = self.COLOR_PICKER_Y + 80 + i * self.SLIDER_MARGIN
-            value_rect = pygame.Rect(self.COLOR_PICKER_X + 160, y_pos, 40, 20)
-            if value_rect.collidepoint(mouse_x, mouse_y):
+            # Zone de clic pour chaque valeur RGB
+            value_rect = pygame.Rect(20, y_offset + i * 50, 60, 20)
+            if value_rect.collidepoint(rel_x, rel_y):
                 return i
         return None
 
@@ -490,6 +519,17 @@ class GarticPhone:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:  # Clic gauche
                 mouse_pos = event.pos
+                
+                # Vérifier le double-clic sur les valeurs RGB
+                current_time = pygame.time.get_ticks()
+                if current_time - self.last_click_time < self.double_click_delay:
+                    # C'est un double-clic, vérifier si on clique sur une valeur RGB
+                    clicked_rgb = self.get_clicked_rgb_value(mouse_pos)
+                    if clicked_rgb is not None:
+                        self.editing_rgb = clicked_rgb
+                        self.rgb_input_text = ""  # Commencer avec une chaîne vide
+                        return
+                self.last_click_time = current_time
                 
                 # Vérifier le clic sur le bouton retour en premier
                 if self.BACK_BUTTON['rect'].collidepoint(mouse_pos):
@@ -699,21 +739,37 @@ class GarticPhone:
             # Mettre à jour l'état de survol du bouton de sauvegarde
             self.SAVE_BUTTON['hover'] = self.SAVE_BUTTON['rect'].collidepoint(mouse_pos)
 
-        elif event.type == pygame.KEYDOWN and self.editing_value is not None:
-            if event.key == pygame.K_RETURN:
-                try:
-                    value = min(255, max(0, int(self.input_text)))
-                    self.rgb_values[self.editing_value] = value
-                    self.current_color = tuple(self.rgb_values)
-                except ValueError:
-                    pass
-                self.editing_value = None
-                self.input_text = ""
-            elif event.key == pygame.K_BACKSPACE:
-                self.input_text = self.input_text[:-1]
-            elif event.unicode.isdigit():
-                self.input_text += event.unicode
-    
+        elif event.type == pygame.KEYDOWN:
+            if self.editing_rgb is not None:
+                if event.key == pygame.K_RETURN:
+                    # Valider la saisie
+                    try:
+                        value = min(255, max(0, int(self.rgb_input_text or "0")))  # Utiliser 0 si vide
+                        self.rgb_values[self.editing_rgb] = value
+                        self.current_color = tuple(self.rgb_values)
+                    except ValueError:
+                        pass  # Ignorer les valeurs invalides
+                    self.editing_rgb = None
+                    self.rgb_input_text = ""
+                elif event.key == pygame.K_ESCAPE:
+                    # Annuler la saisie
+                    self.editing_rgb = None
+                    self.rgb_input_text = ""
+                elif event.key == pygame.K_BACKSPACE:
+                    # Permettre la suppression
+                    self.rgb_input_text = self.rgb_input_text[:-1]
+                elif event.unicode.isdigit():
+                    # N'accepter que les chiffres et limiter la longueur à 3 caractères
+                    if len(self.rgb_input_text) < 3:
+                        self.rgb_input_text += event.unicode
+                        # Vérifier si la valeur ne dépasse pas 255
+                        try:
+                            value = int(self.rgb_input_text)
+                            if value > 255:
+                                self.rgb_input_text = "255"
+                        except ValueError:
+                            pass
+
     def draw_line(self, points):
         if len(points) < 2:
             return
@@ -803,6 +859,13 @@ class GarticPhone:
         handle_x = self.BRUSH_SLIDER_X + progress_width
         handle_y = self.BRUSH_SLIDER_Y + self.BRUSH_SLIDER_HEIGHT // 2
         pygame.draw.circle(self.screen, self.TEXT, (handle_x, handle_y), 6)
+
+        # Afficher la taille actuelle en petit
+        font = pygame.font.Font(None, 20)  # Taille de police réduite
+        size_text = font.render(f"{self.brush_size}px", True, self.TEXT)
+        text_rect = size_text.get_rect(midtop=(self.BRUSH_SLIDER_X + self.BRUSH_SLIDER_WIDTH // 2,
+                                             self.BRUSH_SLIDER_Y - 15))  # Position plus proche du slider
+        self.screen.blit(size_text, text_rect)
 
     def draw_undo_redo_buttons(self):
         for button, is_undo in [(self.UNDO_BUTTON, True), (self.REDO_BUTTON, False)]:
@@ -955,6 +1018,10 @@ class GarticPhone:
         
         # Dessiner le curseur personnalisé en DERNIER
         self.draw_custom_cursor(pygame.mouse.get_pos())
+        
+        # Ajouter l'effet de fin de chrono par-dessus tout
+        if self.chrono_end_effect['active']:
+            self.draw_chrono_end_effect()
         
         pygame.display.flip()
     
@@ -1791,9 +1858,9 @@ class GarticPhone:
         if self.game_mode == "chrono" and self.timer > 0:
             self.timer -= 1/60  # Diminuer d'une seconde (en supposant 60 FPS)
             if self.timer <= 0:
-                # Temps écoulé !
                 self.timer = 0
-                # Ici vous pouvez ajouter ce qui se passe quand le temps est écoulé
+                self.chrono_end_effect['active'] = True
+                self.chrono_end_effect['progress'] = 0
 
     def save_drawing(self):
         try:
@@ -1935,6 +2002,72 @@ class GarticPhone:
                 return [line.strip() for line in file if line.strip()]
         except FileNotFoundError:
             return ["Un chat qui joue avec une pelote de laine", "Un chien qui court après sa queue", "Une maison dans les arbres"]  # Phrases par défaut
+
+    def draw_chrono_end_effect(self):
+        # Augmenter la progression
+        self.chrono_end_effect['progress'] += 1
+        progress = self.chrono_end_effect['progress'] / self.chrono_end_effect['duration']
+        
+        # Créer une surface pour l'effet
+        overlay = pygame.Surface((self.WINDOW_WIDTH, self.WINDOW_HEIGHT), pygame.SRCALPHA)
+        
+        # Flash rouge qui pulse
+        flash_alpha = int(abs(math.sin(progress * math.pi * 4)) * 128)
+        overlay.fill((255, 0, 0, flash_alpha))
+        
+        # Texte "TEMPS ÉCOULÉ!"
+        font_size = int(80 * (1 + math.sin(progress * math.pi * 2) * 0.2))  # Effet de pulsation
+        font = pygame.font.Font(None, font_size)
+        text = font.render("TEMPS ÉCOULÉ !", True, self.WHITE)
+        
+        # Faire tourner le texte légèrement
+        rotation = math.sin(progress * math.pi * 3) * 5  # Oscillation de ±5 degrés
+        rotated_text = pygame.transform.rotate(text, rotation)
+        
+        # Centrer le texte
+        text_rect = rotated_text.get_rect(center=(self.WINDOW_WIDTH // 2, self.WINDOW_HEIGHT // 2))
+        
+        # Ajouter une ombre au texte
+        shadow_offset = 4
+        shadow_text = font.render("TEMPS ÉCOULÉ !", True, (0, 0, 0))
+        shadow_rect = text_rect.copy()
+        shadow_rect.x += shadow_offset
+        shadow_rect.y += shadow_offset
+        
+        # Dessiner des cercles concentriques qui s'étendent
+        num_circles = 3
+        for i in range(num_circles):
+            circle_progress = (progress + i/num_circles) % 1
+            radius = circle_progress * max(self.WINDOW_WIDTH, self.WINDOW_HEIGHT)
+            circle_alpha = int((1 - circle_progress) * 128)
+            circle_surface = pygame.Surface((self.WINDOW_WIDTH, self.WINDOW_HEIGHT), pygame.SRCALPHA)
+            pygame.draw.circle(circle_surface, (*self.NEON_PINK[:3], circle_alpha),
+                             (self.WINDOW_WIDTH//2, self.WINDOW_HEIGHT//2), radius, 4)
+            overlay.blit(circle_surface, (0, 0))
+        
+        # Dessiner l'ombre et le texte
+        overlay.blit(shadow_text, shadow_rect)
+        overlay.blit(rotated_text, text_rect)
+        
+        # Ajouter des particules qui volent vers l'extérieur
+        num_particles = 20
+        for i in range(num_particles):
+            angle = (i / num_particles) * 2 * math.pi
+            distance = progress * max(self.WINDOW_WIDTH, self.WINDOW_HEIGHT) / 2
+            x = self.WINDOW_WIDTH//2 + math.cos(angle) * distance
+            y = self.WINDOW_HEIGHT//2 + math.sin(angle) * distance
+            particle_size = int(10 * (1 - progress))
+            particle_alpha = int(255 * (1 - progress))
+            particle_color = (*self.NEON_BLUE[:3], particle_alpha)
+            pygame.draw.circle(overlay, particle_color, (int(x), int(y)), particle_size)
+        
+        # Afficher l'overlay
+        self.screen.blit(overlay, (0, 0))
+        
+        # Désactiver l'effet une fois terminé
+        if self.chrono_end_effect['progress'] >= self.chrono_end_effect['duration']:
+            self.chrono_end_effect['active'] = False
+            self.current_screen = "menu"  # Retourner au menu
 
 if __name__ == '__main__':
     game = GarticPhone()
