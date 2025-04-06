@@ -1,0 +1,499 @@
+Un chat avec un monocle
+
+Un chien sur un skateboard
+
+Une girafe qui boit un milkshake
+
+Un éléphant qui vole avec des ballons
+
+Un poisson avec des jambes
+
+Une licorne en colère
+
+Un dragon qui éternue du feu
+
+Un canard qui fait du surf
+
+Un poulpe qui joue du piano
+
+Un hérisson avec des lunettes de soleil
+
+Un panda qui fait du kung-fu
+
+Un dauphin qui lit un livre
+
+Un perroquet qui fait du roller
+
+Un loup déguisé en mouton
+
+Une tortue supersonique
+
+Un pingouin détective
+
+Un serpent qui joue au basket
+
+Un ours polaire en short de bain
+
+Un tigre qui boit un café
+
+Une vache sur un trampoline
+
+Une araignée avec un chapeau
+
+Un gorille qui danse
+
+Un raton laveur voleur de hot-dog
+
+Une mouette qui vole un téléphone
+
+Un crabe avec une épée
+
+Une fourmi super-héroïne
+
+Un hibou professeur
+
+Un zèbre arc-en-ciel
+
+Un kangourou boxeur
+
+Un escargot avec une fusée sur le dos
+
+Une chauve-souris vampire mignonne
+
+Un chihuahua avec une cape
+
+Un cheval qui rit
+
+Un caméléon ninja
+
+Une abeille avec un sac à main
+
+Un renard déguisé en pirate
+
+Un flamant rose DJ
+
+Un cochon qui fait du karaté
+
+Un écureuil sur une moto
+
+Une grenouille avec un parapluie
+
+Un castor architecte
+
+Une étoile de mer super-héroïne
+
+Une méduse avec un chapeau de fête
+
+Une pieuvre chef cuisinier
+
+Un requin qui médite
+
+Un lapin magicien
+
+Un iguane avec un chapeau melon
+
+Une taupe avec des lunettes de soleil
+
+Un poussin dans un avion
+
+Un lémurien qui fait du yoga
+
+Un astronaute sur la lune
+
+Un chevalier en armure rose
+
+Un vampire végétarien
+
+Un pirate effrayé par une souris
+
+Un sorcier en roller
+
+Un détective avec une loupe géante
+
+Un samouraï qui mange des sushis
+
+Un cowboy sur une licorne
+
+Un scientifique qui explose son labo
+
+Un professeur distrait
+
+Un ninja qui tricote
+
+Un facteur avec un drone
+
+Un cuisinier qui jongle avec des pizzas
+
+Un bûcheron qui danse la salsa
+
+Un clown triste
+
+Un super-héros qui dort
+
+Un magicien raté
+
+Un policier poursuivi par un chat
+
+Un roi en pantoufles
+
+Un robot serveur
+
+Un peintre avec un pinceau vivant
+
+Un boxeur qui s’endort sur le ring
+
+Un aventurier avec une carte déchirée
+
+Un mime invisible
+
+Un serveur maladroit
+
+Un plongeur avec un poisson dans son masque
+
+Un skieur en tongs
+
+Un karatéka qui casse son pantalon
+
+Un ange qui prend un selfie
+
+Un démon qui fait du shopping
+
+Un homme invisible en costume
+
+Un fantôme avec un ballon
+
+Un chasseur de fantômes perdu
+
+Un président qui joue à la console
+
+Un mannequin qui fait une grimace
+
+Un fermier qui parle aux légumes
+
+Un vampire au soleil
+
+Un ogre qui lit un livre
+
+Un magicien qui rate son tour
+
+Un extraterrestre sur un vélo
+
+Un livreur de pizza en hoverboard
+
+Un sportif maladroit
+
+Un moine zen qui joue au foot
+
+Un robot majordome
+
+Un elfe fatigué
+
+Un acteur qui oublie son texte
+
+Un médecin qui rit trop
+
+Un chanteur de métal qui pleure
+
+Un athlète avec des chaussures dépareillées
+
+Un DJ qui casse son disque
+
+Une pizza avec un visage
+
+Une pastèque qui porte des lunettes
+
+Un burger qui danse
+
+Une glace qui fond de tristesse
+
+Une tasse de café avec des yeux fatigués
+
+Une baguette de pain en mode kung-fu
+
+Une pomme de terre déguisée en roi
+
+Un sushi qui se cache sous une serviette
+
+Un œuf au plat qui bronzage au soleil
+
+Une carotte qui soulève des haltères
+
+Un donut avec des lunettes de soleil
+
+Une fraise qui joue de la guitare
+
+Un milkshake avec une paille tordue
+
+Un hot-dog en train de courir
+
+Une boîte de céréales qui fait la fête
+
+Un ananas qui fait du surf
+
+Une salade qui s’échappe de l’assiette
+
+Un pot de miel qui pleure
+
+Une tomate qui joue à cache-cache
+
+Un cookie qui s’évade d’un verre de lait
+
+Une crêpe qui saute dans les airs
+
+Un gâteau d’anniversaire en feu
+
+Un bol de soupe qui tremble de peur
+
+Un avocat en train de faire du yoga
+
+Une bouteille de soda qui explose
+
+Un croissant avec un béret
+
+Une poire qui prend un selfie
+
+Un morceau de fromage en fuite
+
+Un cornichon qui fait la grimace
+
+Une tablette de chocolat qui se casse en deux
+
+Une cannette écrasée qui boude
+
+Une soupe avec des nouilles qui s’échappent
+
+Un taco qui rit aux éclats
+
+Une gaufre qui fait la sieste
+
+Un pop-corn qui éclate
+
+Une noisette avec une écharpe
+
+Un pain perdu qui pleure
+
+Une barbe à papa qui flotte dans le ciel
+
+Un bol de riz avec des baguettes en équilibre
+
+Une bouteille de ketchup qui pleure
+
+Une banane qui glisse sur sa propre peau
+
+Un muffin avec un chapeau
+
+Un beignet qui s’accroche à la vie
+
+Un café renversé qui pleure son sort
+
+Une sucette qui colle tout sur son passage
+
+Un marshmallow grillé qui crie
+
+Un chewing-gum collé sous une chaussure
+
+Un verre d’eau avec un poisson dedans
+
+Une boîte de macarons colorés
+
+Un milkshake avec des paillettes
+
+Une île flottante avec une maison dessus
+
+Un château sous l’eau
+
+Une maison dans un arbre géant
+
+Une ville futuriste avec des voitures volantes
+
+Un volcan en pleine éruption
+
+Une montagne en forme de visage
+
+Un cirque abandonné
+
+Une forêt enchantée avec des lucioles géantes
+
+Une grotte remplie de cristaux brillants
+
+Une école de magie
+
+Un parc d’attractions hanté
+
+Un marché de nuit coloré
+
+Une plage avec des palmiers qui dansent
+
+Un tunnel secret derrière une bibliothèque
+
+Une fusée prête à décoller
+
+Une ville sous un dôme
+
+Un phare sur une falaise
+
+Un désert avec des pyramides extraterrestres
+
+Une station spatiale en orbite
+
+Un labyrinthe sans fin
+
+Une cascade magique
+
+Un temple perdu dans la jungle
+
+Un pont suspendu au-dessus des nuages
+
+Une grotte remplie de trésors
+
+Une île en forme de tortue
+
+Un château dans les nuages
+
+Un lac gelé avec un bateau pris dans la glace
+
+Une salle secrète derrière un tableau
+
+Une fête foraine abandonnée
+
+Une ruelle sombre avec une lumière mystérieuse
+
+Une taverne remplie de pirates
+
+Une ville en noir et blanc
+
+Un monde où tout est en bonbon
+
+Une ville engloutie sous la mer
+
+Une arène de gladiateurs futuriste
+
+Un royaume où les animaux sont rois
+
+Un cimetière avec des pierres tombales rigolotes
+
+Une jungle avec des ruines anciennes
+
+Une ferme avec des animaux mutants
+
+Un village de Noël miniature
+
+Une bibliothèque infinie
+
+Une tour qui monte jusqu’au ciel
+
+Une plage avec des vagues en arc-en-ciel
+
+Un métro fantôme
+
+Un zoo intergalactique
+
+Un laboratoire où des expériences bizarres ont mal tourné
+
+Un dôme sous-marin avec des méduses lumineuses
+
+Un vieux manoir hanté
+
+Une ville qui flotte dans le ciel
+
+Un champ de tournesols géants
+
+Quelqu’un qui marche sur une peau de banane
+
+Un bonhomme de neige en plein été
+
+Un chat qui vole un hamburger
+
+Un poisson qui fait du vélo
+
+Un extraterrestre qui commande au fast-food
+
+Une sorcière qui rate son sort
+
+Un pirate qui a peur de l’eau
+
+Un robot qui tombe en panne en plein discours
+
+Un cow-boy qui danse le moonwalk
+
+Un vampire qui se regarde dans un miroir
+
+Un zombie qui fait du shopping
+
+Un fantôme qui se coince dans un mur
+
+Un magicien qui sort un canard au lieu d’un lapin
+
+Une sirène qui essaie de marcher
+
+Un chevalier qui fuit un petit lapin
+
+Un ninja qui trébuche sur sa cape
+
+Un clown qui perd son nez
+
+Un ogre qui mange un minuscule gâteau
+
+Un sportif qui oublie ses chaussures
+
+Un détective qui cherche sa loupe… alors qu’elle est sur sa tête
+
+Un super-héros qui rate son atterrissage
+
+Un bébé dragon qui crache de la glace au lieu de feu
+
+Un cycliste qui pédale dans le vide
+
+Un éléphant qui essaie de se cacher derrière un lampadaire
+
+Un homme invisible qui oublie son chapeau
+
+Une momie qui essaie d’échapper à son bandage
+
+Un robot qui tombe amoureux d’un grille-pain
+
+Un requin qui joue aux cartes
+
+Un renard qui lit un journal
+
+Un cheval qui conduit une voiture
+
+Une tortue qui fait la course avec un lièvre en trottinette
+
+Un escargot qui bat un guépard à la course
+
+Un chat qui fait du karaté
+
+Un lapin avec un parapluie en chocolat
+
+Un homme des cavernes qui découvre un smartphone
+
+Un astronaute qui essaie de boire un soda
+
+Un yeti qui se cache dans un igloo
+
+Une girafe qui essaie de rentrer dans un taxi
+
+Un lion qui se fait coiffer par un singe
+
+Un caméléon qui change de couleur à cause d’un arc-en-ciel
+
+Un cyclope qui joue à cache-cache
+
+Un génie de lampe qui sort une pizza au lieu d’un souhait
+
+Un chien qui joue aux échecs avec un chat
+
+Un roi qui échange son trône contre un hamac
+
+Un koala qui fait du trampoline
+
+Une mouche qui fait un selfie
+
+Un perroquet qui pirate un ordinateur
+
+Un sumo qui danse la salsa
+
+Un dinosaure qui mange du pop-corn
+
+Un lutin qui se prend les pieds dans ses chaussures
